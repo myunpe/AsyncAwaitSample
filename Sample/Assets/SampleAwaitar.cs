@@ -14,10 +14,37 @@ namespace Lib
         T GetResult();
     }
 
-    public class SampleAwaitar<T>
+
+    public class ResourceRequestAwaiter : IAwaitar<UnityEngine.GameObject>
     {
+        private ResourceRequest resourceRequest;
+
+        public ResourceRequestAwaiter(ResourceRequest resourceRequest)
+        {
+            this.resourceRequest = resourceRequest;
+        }
+
+        public bool IsCompleted => resourceRequest?.isDone ?? true;
+
+        void IAwaitar<GameObject>.OnCompleted(Action continuation)
+        {
+            
+            continuation?.Invoke();
+        }
+
+        public GameObject GetResult()
+        {
+            return resourceRequest.asset as GameObject;
+        }
+
+        void INotifyCompletion.OnCompleted(Action continuation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UnsafeOnCompleted(Action continuation)
+        {
+            throw new NotImplementedException();
+        }
     }
-    
-    
-    
 }
