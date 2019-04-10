@@ -3,11 +3,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 using Utility;
 
 public class CroutineToAsyncSample : MonoBehaviour
 {
-    
 //    14:25:58 269 Sample1 Start
 //    14:25:58 286 Sample1Async Start
 //    14:26:1 320 Sample1Async End
@@ -16,35 +17,26 @@ public class CroutineToAsyncSample : MonoBehaviour
     private void Start()
     {
         Log.Debug("start start");
-        StartCoroutine(Sample1());
+        StartCoroutine(SomeMethodCroutine());
 
-        var t = Sample1Async();
+        var t = SomeMethodAsync();
         Log.Debug("start end");
+
+        Log.Debug("unitask async");
+   }
+
+    void SomeMethod()
+    {
+        
     }
 
-    private IEnumerator Sample1()
+    private IEnumerator SomeMethodCroutine()
     {
-        Log.Debug("Sample1 Start");
-        yield return new WaitForSeconds(3);
-        Log.Debug("Sample1 End");
+        yield return null;
     }
 
-    private async Task Sample1Async()
+    private async Task SomeMethodAsync()
     {
-        Log.Debug("Sample1Async Start" + Thread.CurrentThread.Name);
-        await Task.Delay(3000);
-        Log.Debug("Sample1Async End" + Thread.CurrentThread.Name);
-    }
-
-    private async void Sample1UniAsync()
-    {
-        await UniTask.Delay(3000);
-    }
-
-
-    private async Lib.TaskLike<int> LikeAsync()
-    {
-        await Task.Delay(3000);
-        return 100;
+        
     }
 }
