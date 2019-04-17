@@ -13,6 +13,8 @@ public class CroutineToAsyncSample : MonoBehaviour
 //    14:26:1 320 Sample1Async End
 //    14:26:1 815 Sample1 End
 
+    
+
     private void Start()
     {
         Log.Debug("start start");
@@ -38,13 +40,14 @@ public class CroutineToAsyncSample : MonoBehaviour
 
     private async void Sample1UniAsync()
     {
+        
         await UniTask.Delay(3000);
     }
 
 
-    private async Lib.TaskLike<int> LikeAsync()
-    {
-        await Task.Delay(3000);
-        return 100;
-    }
+//    private async Lib.TaskLike<int> LikeAsync()
+//    {
+//        await Task.Delay(3000);
+//        return 100;
+//    }
 }
