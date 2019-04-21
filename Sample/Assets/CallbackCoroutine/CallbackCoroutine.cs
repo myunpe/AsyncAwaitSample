@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class CallbackCoroutine : MonoBehaviour
 {
-    // Start is called before the first frame update
     async void Start()
     {
         StartCoroutine(LoadCoroutine("cube", o => Instantiate(o)));
