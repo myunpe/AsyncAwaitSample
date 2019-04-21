@@ -15,7 +15,6 @@ public class TryCatchAsync : MonoBehaviour
         Async();
     }
 
-
     IEnumerator Coroutine()
     {
         var operation = Resources.LoadAsync<GameObject>("");
@@ -25,15 +24,8 @@ public class TryCatchAsync : MonoBehaviour
         }
 
         var cube =  operation.asset as GameObject;
-        if (cube == null)
-        {
-            Debug.LogError("Coroutine 読み込めませんでした。");
-            yield break;
-        }
-
-        Instantiate(cube);
+        Instantiate(cube);    //ArgumentExceptionが発生する。
     }
-    
     
     async Task Async ()
     {
