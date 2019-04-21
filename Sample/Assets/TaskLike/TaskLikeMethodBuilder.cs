@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
-using UniRx.Async.Internal;
 using UnityEngine;
 
 namespace TaskLike.Runtime.CompilerService

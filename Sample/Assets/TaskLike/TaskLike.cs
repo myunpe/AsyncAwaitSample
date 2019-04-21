@@ -5,6 +5,19 @@ using System.Runtime.CompilerServices;
 using TaskLike.Runtime.CompilerService;
 using UnityEngine;
 
+
+
+public class AsyncMethodBuilder : Attribute
+{
+    public Type type { get; }
+
+    public AsyncMethodBuilder(Type type)
+    {
+        this.type = type;
+    }
+}
+
+
 namespace TaskLike
 {
     

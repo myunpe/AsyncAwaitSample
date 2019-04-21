@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+
 namespace Lib
 {
     [AsyncMethodBuilder(typeof(AsyncTaskLikeMethodBuilder<>))]
     public partial struct TaskLike<TResult>
     {
-        
     }
 
     public struct AsyncTaskLikeMethodBuilder<TResult>
@@ -47,8 +47,4 @@ namespace Lib
         {
         }
     }
-
-
 }
-
-

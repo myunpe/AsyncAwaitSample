@@ -1,8 +1,6 @@
 {
     "name": "TaskLike",
-    "references": [
-        "UniRx.Async"
-    ],
+    "references": [],
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
