@@ -29,6 +29,6 @@ public class CallbackCoroutine : MonoBehaviour
 
     async Task<GameObject> LoadAsync(string path)
     {
-        return await Resources.LoadAsync<GameObject>(path) as GameObject;
+        return await Resources.LoadAsync(path) as GameObject;
     }
 }

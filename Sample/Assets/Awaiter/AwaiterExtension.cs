@@ -11,7 +11,7 @@ namespace AwaiterExtensions
 {
     public static class AwaiterExtension
     {
-        public static TaskAwaiter<Object> GetAwaiter(this ResourceRequest operation)
+        public static TaskAwaiter<UnityEngine.Object> GetAwaiter(this ResourceRequest operation)
         {
             var tcs = new TaskCompletionSource<Object>();
             
