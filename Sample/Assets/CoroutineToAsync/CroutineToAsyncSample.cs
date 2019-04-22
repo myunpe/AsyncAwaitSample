@@ -1,42 +1,28 @@
 ﻿using System.Collections;
-using System.Threading;
+using System.Diagnostics;
 using System.Threading.Tasks;
-
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.UI;
 using Utility;
+using Debug = UnityEngine.Debug;
 
 public class CroutineToAsyncSample : MonoBehaviour
 {
-//    14:25:58 269 Sample1 Start
-//    14:25:58 286 Sample1Async Start
-//    14:26:1 320 Sample1Async End
-//    14:26:1 815 Sample1 End
-
-    private void Start()
+    void Start()
     {
-        Log.Debug("start start");
-        StartCoroutine(SomeMethodCroutine());
-
-        var t = SomeMethodAsync();
-        Log.Debug("start end");
-
-        Log.Debug("unitask async");
-   }
-
-    void SomeMethod()
-    {
-        
+//        StartCoroutine(SomeMethodCroutine());
+        SomeMethodAsync();
     }
 
-    private IEnumerator SomeMethodCroutine()
+    IEnumerator SomeMethodCroutine()
     {
-        yield return null;
+        yield return new WaitForSeconds(1.0f);
     }
 
-    private async Task SomeMethodAsync()
+    async Task SomeMethodAsync()
     {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        await Task.Delay(1000);
         
+        Debug.Log("watch : " + stopwatch.ElapsedMilliseconds);
     }
 }
