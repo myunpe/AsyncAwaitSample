@@ -8,11 +8,19 @@ using UnityEngine;
 public class MultiCoroutine : MonoBehaviour
 {
 
+//    IEnumerator Start()
+//    {
+//        List<GameObject> cubes = new List<GameObject>();
+//        var co1 = StartCoroutine(LoadCoroutine("cube", o => cubes.Add(o)));
+//        var co2 = StartCoroutine(LoadCoroutine("cube", o => cubes.Add(o)));
+//        yield return co1;
+//        yield return co2;
+//        Instantiate(cubes[0]);
+//        Instantiate(cubes[1]);
+//    }
+
     async void Start()
     {
-        StartCoroutine(LoadCoroutine("cube", o => Instantiate(o)));
-        StartCoroutine(LoadCoroutine("cube", o => Instantiate(o)));
-
         var cubes = await Task.WhenAll(LoadAsync("cube"), LoadAsync("cube"));
         Instantiate(cubes[0]);
         Instantiate(cubes[1]);
